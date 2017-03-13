@@ -1,0 +1,22 @@
+<md-toolbar [color]="'primary'">
+    {{title}}
+</md-toolbar>
+<div fxLayout="row"
+     fxLayout.xs="column"
+     fxLayoutAlign="center center"
+     fxLayoutAlign.xs="start"
+     fxLayoutGap="20px">
+  <div fxFlex="40%" fxFlex.xs="100%" class="flex-item">
+    <md-input-container>
+      <textarea mdInput #source rows="3" placeholder="Add code here..."></textarea>
+    </md-input-container>
+  </div>
+  <div fxFlex="20%" fxFlex.xs="100%" class="flex-item">
+    <button md-button [color]="'primary'" (click)="parse('flat')">Flatten</button>
+    <button md-button [color]="'primary'" (click)="parse('unflat')">Expand</button>
+  </div>
+  <div fxFlex="40%" fxFlex.xs="100%" class="flex-item">
+    <pre><code>{{result}}</code></pre>
+    <span *ngIf="error" class="error">{{ error }}</span>
+  </div>
+</div>
